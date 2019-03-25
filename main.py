@@ -1,13 +1,9 @@
 import pygame
 
-
-
 pygame.init()
 win = pygame.display.set_mode((500, 500))
 
 pygame.display.set_caption("Field")
-
-
 
 width = 40
 height = 60
@@ -21,6 +17,7 @@ x = 0
 y = 0
 
 run = True
+choose = input("Do you want to ride a tractor by yourself?(Type in 'Yes' for yes, or anything else for no): ")
 while(run):
     pygame.time.delay(100) #like a clock
 
@@ -28,31 +25,26 @@ while(run):
         if event.type == pygame.QUIT:
             run = False
 
-    keys = pygame.key.get_pressed()
+    if((choose == 'Yes') or (choose == 'yes')):
+        keys = pygame.key.get_pressed()
 
-    if keys[pygame.K_LEFT] and x > vel:
-        x -= vel
-        x += vel
-    if keys[pygame.K_RIGHT] and x < (500 - width - vel):                        #moving character
-        x += vel
-    if keys[pygame.K_UP] and y > 0:
-        y -= vel
-    if keys[pygame.K_DOWN] and y < (500 - height - vel):
-        y += vel
+        if keys[pygame.K_LEFT] and x > vel:
+            x -= vel
+        if keys[pygame.K_RIGHT] and x < (500 - width - vel):                        #moving character
+            x += vel
+        if keys[pygame.K_UP] and y > 0:
+            y -= vel
+        if keys[pygame.K_DOWN] and y < (500 - height - vel):
+            y += vel
 
+    else:
+        if(x != (500 - width)):
+            x += 20
+        if(x == (500 - width)):
+            y+=20
+            x = 0
     win.fill(1)
-    trac(x, y)
-
-    if(x != (500 - width)):
-        x += 20
-    if(x == (500 - width)):
-        y+=20
-        x = 0
-
-
-    # win.fill(1)
-    # trac(x,y)
-
+    trac(x,y)
 
     pygame.display.update()
 
