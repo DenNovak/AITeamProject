@@ -1,0 +1,9 @@
+0 -1 None 0 None
+1 0 l 0 0
+2 0 r 2 None
+3 2 l 1 None
+4 3 l 0 1
+5 3 r 6 None
+6 5 l 0 0
+7 5 r 0 1
+8 2 r 0 0
